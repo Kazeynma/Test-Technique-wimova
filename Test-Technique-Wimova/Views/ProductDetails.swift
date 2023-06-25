@@ -39,8 +39,7 @@ struct ProductDetails: View {
                 
             }
             
-            Image(product.images[0])
-            Image(product.images[1])
+            //essayer de mettre les images supplémentaire
         }
     }
 }

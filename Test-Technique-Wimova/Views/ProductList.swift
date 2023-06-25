@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct ProductList: View {
-    //Récupérer le produit donné par le presenter
+    //Récupérer la liste de produit donné par le presenter
     @StateObject var presenter = ProductPresenter()
     
-    var listProduct : [Product] = [
-        Product.mock(),
-        Product.mock()
-    ]
+    
+    @State var filter : String = ""
+    
+    //var listProduct : [Product] = [
+    //  Product.mock(),
+    //  Product.mock()
+    //]
+
+    var filteredProducts : [Product] {
+        presenter.products.filter {
+            product in (
+                (product.title.lowercased()).contains(filter.lowercased()) ||
+                (product.description.lowercased()).contains(filter.lowercased()) ||
+                filter == ""
+            )
+        }
+    }
+    
     var body: some View {
-        List(presenter.products) {
-            product in
-            ProductRow(product: product)
+        List{
+            TextField("Rechercher", text: $filter)
+            ForEach(filteredProducts) {
+                product in
+                ProductRow(product: product)
+            }
         }
         .onAppear {
             presenter.getProducts()
