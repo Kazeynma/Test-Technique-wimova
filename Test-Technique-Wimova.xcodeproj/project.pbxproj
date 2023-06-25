@@ -21,6 +21,7 @@
 		3D52FAC72A487EF900F02FF9 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D52FAC62A487EF900F02FF9 /* ProductRow.swift */; };
 		3D52FACD2A48822100F02FF9 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D52FACC2A48822100F02FF9 /* ProductList.swift */; };
 		3D52FAD02A4882DD00F02FF9 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D52FACF2A4882DD00F02FF9 /* ProductDetails.swift */; };
+		3D592D9A2A48B33A00447D0F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592D992A48B33A00447D0F /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		3D52FAC62A487EF900F02FF9 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		3D52FACC2A48822100F02FF9 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		3D52FACF2A4882DD00F02FF9 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
+		3D592D992A48B33A00447D0F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				3D52FABF2A487A4000F02FF9 /* Interactor.swift */,
 				3D52FAC22A487A5900F02FF9 /* ProductPresenter.swift */,
+				3D592D992A48B33A00447D0F /* Router.swift */,
 			);
 			path = Viper;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			files = (
 				3D52FA8F2A486F4900F02FF9 /* ContentView.swift in Sources */,
 				3D52FAD02A4882DD00F02FF9 /* ProductDetails.swift in Sources */,
+				3D592D9A2A48B33A00447D0F /* Router.swift in Sources */,
 				3D52FACD2A48822100F02FF9 /* ProductList.swift in Sources */,
 				3D52FABD2A48771600F02FF9 /* DataModel.swift in Sources */,
 				3D52FAC32A487A5900F02FF9 /* ProductPresenter.swift in Sources */,

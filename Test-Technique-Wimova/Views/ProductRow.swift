@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ProductRow: View {
     var product : Product
+    
     var body: some View {
         HStack {
-            Spacer()
             Text(product.title)
             Spacer()
             Text(" \(product.price)€")
-            Spacer()
+            
         }
+        
     }
 }
-
 struct ProductRow_Previews: PreviewProvider {
     static var previews: some View {
         ProductRow(product: Product.mock())

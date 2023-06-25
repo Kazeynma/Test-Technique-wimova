@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ProductDetails: View {
+    @ObservedObject var presenter : ProductPresenter
     var product : Product
     var body: some View {
         ScrollView {
+            HStack {
+                Button {
+                    
+                } label : {
+                    Image(systemName: "arrow.left")
+                        .foregroundColor(.black)
+                }
+                Spacer()
+            }
+            .padding([.leading, .bottom], 5.0)
+            
+            
             Image(product.thumbnail)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -46,6 +59,6 @@ struct ProductDetails: View {
 
 struct ProductDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetails(product: Product.mock())
+        ProductDetails(presenter: ProductPresenter(), product: Product.mock())
     }
 }

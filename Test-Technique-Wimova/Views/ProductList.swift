@@ -10,9 +10,10 @@ import SwiftUI
 struct ProductList: View {
     //Récupérer la liste de produit donné par le presenter
     @StateObject var presenter = ProductPresenter()
-    
-    
     @State var filter : String = ""
+    @State var _displayDetails : Bool = false
+    @State var selectedProduct : Product!
+    
     
     //var listProduct : [Product] = [
     //  Product.mock(),
@@ -29,19 +30,38 @@ struct ProductList: View {
         }
     }
     
+    
+    
     var body: some View {
-        List{
-            TextField("Rechercher", text: $filter)
-            ForEach(filteredProducts) {
-                product in
-                ProductRow(product: product)
-            }
-        }
-        .onAppear {
-            presenter.getProducts()
-    }
         
-        }
+        //création de 2 binding
+        //fait parti du protocol router
+        let displayDetails = Binding(
+            //permet au routeur de naviguer vers les autres vues
+            get: { self._displayDetails },
+            //permet de revenir en arrière
+            set: { self._displayDetails = $0 }
+        )
+        List{
+                TextField("Rechercher", text: $filter)
+                ForEach(filteredProducts) {
+                    product in
+                    ProductRow(product: product)
+                        .onTapGesture {
+                            displayDetails.wrappedValue = true
+                            selectedProduct = product
+                        }
+                }
+                
+            }
+            .onAppear {
+                presenter.getProducts()
+            }
+            .fullScreenCover(isPresented : displayDetails) {
+                presenter.goToProductDetails(thisProduct: selectedProduct)
+            }
+            
+    }
 }
 
 struct ProductList_Previews: PreviewProvider {
