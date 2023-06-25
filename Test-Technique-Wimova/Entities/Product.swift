@@ -7,6 +7,14 @@
 
 import Foundation
 
+//Création d'une structure pour la réponse du json récupéré par le lien
+struct Response : Codable {
+    var products : [Product]
+    var total : Int
+    var skip: Int
+    var limit : Int
+}
+
 struct Product : Codable, Identifiable {
     var id: Int
     var title: String

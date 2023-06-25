@@ -24,4 +24,8 @@ class ProductPresenter : ObservableObject {
             .assign(to: \.products, on: self)
             .store(in: &cancellables)
     }
+    
+    func getProducts() {
+        interactor.getProducts()
+    }
 }

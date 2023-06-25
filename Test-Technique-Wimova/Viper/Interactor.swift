@@ -16,5 +16,7 @@ class Interactor : ObservableObject {
         dataModel = DataModel()
     }
     
-    
+    func getProducts() {
+        dataModel.getProducts()
+    }
 }

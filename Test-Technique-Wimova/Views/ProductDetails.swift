@@ -31,12 +31,16 @@ struct ProductDetails: View {
             Text("Caractéristiques : ")
                 .multilineTextAlignment(.leading)
             Spacer()
-            Text("- catégorie : \(product.category)")
-            Text("- marque : \(product.brand)")
-            Text("- Avis : \(product.rating)")
+            VStack(alignment: .leading) {
+                Text("- catégorie : \(product.category)")
+                Text("- marque : \(product.brand)")
+                Text("- Avis : \(product.rating)")
+                Text("- Stock : \(product.stock)")
+                
+            }
             
-            
-            
+            Image(product.images[0])
+            Image(product.images[1])
         }
     }
 }
