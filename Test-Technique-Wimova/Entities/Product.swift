@@ -34,7 +34,7 @@ extension Product {
             stock: 100,
             brand: "Samsung",
             category: "Smartphone",
-            thumbnail: "https://images.samsung.com/is/image/samsung/assets/fr/smartphones/galaxy-s22-ultra/buy/2784.png?$PD_SHOP_MAIN$",
+            thumbnail: "thumbnail",
             images: [
                 "https://images.samsung.com/is/image/samsung/assets/fr/smartphones/galaxy-s22-ultra/buy/2784.png?$PD_SHOP_MAIN$",
                 "https://boulanger.scene7.com/is/image/Boulanger/8806090892554_h_f_l_0?wid=500&hei=500"
