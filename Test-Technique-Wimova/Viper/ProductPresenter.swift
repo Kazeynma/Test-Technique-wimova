@@ -35,7 +35,7 @@ class ProductPresenter : ObservableObject {
     
     //router
     
-    func goToProductDetails(thisProduct : Product) -> some View {
-        router.goToProductDetails(thisProduct: thisProduct)
+    func goToProductDetails(closeScreen: Binding<Bool>, thisProduct : Product) -> some View {
+        router.goToProductDetails(closeScreen: closeScreen, thisProduct: thisProduct)
     }
 }

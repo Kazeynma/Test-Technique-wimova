@@ -7,18 +7,28 @@
 
 import SwiftUI
 
+struct ButtonModifier : ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(5)
+            .font(.title)
+            .foregroundColor(.black)
+    }
+}
+
 struct ProductDetails: View {
     @ObservedObject var presenter : ProductPresenter
+    @Binding var closeScreen : Bool
     var product : Product
     var body: some View {
         ScrollView {
             HStack {
                 Button {
-                    
+                    closeScreen.toggle()
                 } label : {
                     Image(systemName: "arrow.left")
-                        .foregroundColor(.black)
                 }
+                .modifier(ButtonModifier())
                 Spacer()
             }
             .padding([.leading, .bottom], 5.0)
@@ -59,6 +69,6 @@ struct ProductDetails: View {
 
 struct ProductDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetails(presenter: ProductPresenter(), product: Product.mock())
+        ProductDetails(presenter: ProductPresenter(), closeScreen: .constant(false), product: Product.mock())
     }
 }

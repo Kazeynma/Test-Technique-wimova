@@ -11,9 +11,9 @@ import SwiftUI
 //permet de gérer la navigation entre les écrans
 struct Router {
     
-    func goToProductDetails(thisProduct : Product) -> some View {
+    func goToProductDetails(closeScreen: Binding<Bool>, thisProduct : Product) -> some View {
         let presenter = ProductPresenter()
         //récupérer le bon produit correspondant avec l'idProduct qu'on donne
-        return ProductDetails(presenter: presenter, product: thisProduct)
+        return ProductDetails(presenter: presenter, closeScreen: closeScreen, product: thisProduct)
     }
 }

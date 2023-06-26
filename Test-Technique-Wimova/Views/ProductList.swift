@@ -58,7 +58,7 @@ struct ProductList: View {
                 presenter.getProducts()
             }
             .fullScreenCover(isPresented : displayDetails) {
-                presenter.goToProductDetails(thisProduct: selectedProduct)
+                presenter.goToProductDetails(closeScreen: displayDetails,thisProduct: selectedProduct)
             }
             
     }
