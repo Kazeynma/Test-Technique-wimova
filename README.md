@@ -41,5 +41,12 @@ Cependant avec les tutoriels certaines notions manquaient comme la mise en place
 
 Ensuite il m'a été difficile de mettre en place une fonction permettant de récupérer les données depuis le lien : https://dummyjson.com/products/search?q=phone à l'aide de dataTask mais également les images des produits.
 
+Je suis assez familière avec les fonctions asynchrones cependant je n'étais pas sûre de comment utiliser dataTask. 
+Encore actuellement je ne suis pas encore sûre de comment placer mon DispatchQueue.main.async pour la fonction getProducts car j'ai un warning en ce qui concerne le "background thread".
+
+Lorsque j'utilise dataTask, je l'utilise avec un completionHandler qui va me permettre de récupérer le "data", la "reponse" et l'erreur s'il y en a une. 
+Et c'est lorsque je devais exploiter le "data" que je n'étais pas sûre de moi et que j'ai mis beaucoup de temps à savoir l'utiliser notamment pour récupérer des données JSON.
+
+
 
 

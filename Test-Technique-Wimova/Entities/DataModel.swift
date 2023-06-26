@@ -18,7 +18,7 @@ final class DataModel : ObservableObject {
     func getProducts() -> Void{
         let url = URL(string: "https://dummyjson.com/products/search?q=phone")!
         let task = URLSession.shared.dataTask(with: url) {
-            data, response, error in
+            data, _, error in
             if error != nil {
                 return
             }
@@ -29,7 +29,9 @@ final class DataModel : ObservableObject {
             //decode JSON 
             do {
                 let response = try JSONDecoder().decode(Response.self, from: data)
-                self.products = response.products
+                DispatchQueue.main.async {
+                    self.products = response.products
+                }
             } catch {
                 print("Error : \(error)")
             }
@@ -73,7 +75,7 @@ final class DataModel : ObservableObject {
                 group.enter()
                 
                 if let imageUrl = URL(string: url) {
-                    let task = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+                    let task = URLSession.shared.dataTask(with: imageUrl) { data, _, error in
                         if let error = error {
                             print("Error loading image: \(error)")
                             //en cas d'erreur on va quitter le groupe
