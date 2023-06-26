@@ -19,4 +19,12 @@ class Interactor : ObservableObject {
     func getProducts() {
         dataModel.getProducts()
     }
+    
+    func fetchImage(urlImg: String) {
+        dataModel.fetchImage(urlImg: urlImg)
+    }
+    
+    func fetchManyImage(arrayUrl: [String]) {
+        dataModel.fetchManyImage(arrayUrl: arrayUrl)
+    }
 }

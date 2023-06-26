@@ -14,6 +14,8 @@ import Combine
 class ProductPresenter : ObservableObject {
     //@Published permet à la vue d'écouter aux changements et de faire des updates
     @Published var products : [Product] = []
+    @Published var thumbnail : UIImage? = nil
+    @Published var images : [UIImage?] = []
     private var interactor = Interactor()
     private var router = Router()
     
@@ -25,6 +27,14 @@ class ProductPresenter : ObservableObject {
         interactor.dataModel.$products
             .assign(to: \.products, on: self)
             .store(in: &cancellables)
+        
+        interactor.dataModel.$thumbnail
+            .assign(to: \.thumbnail, on: self)
+            .store(in: &cancellables)
+        
+        interactor.dataModel.$images
+            .assign(to: \.images, on: self)
+            .store(in: &cancellables)
     }
     
     //dataModel
@@ -33,6 +43,13 @@ class ProductPresenter : ObservableObject {
         interactor.getProducts()
     }
     
+    func fetchImage(urlImg: String) {
+        interactor.fetchImage(urlImg: urlImg)
+    }
+    
+    func fetchManyImage(arrayUrl: [String]) {
+        interactor.fetchManyImage(arrayUrl: arrayUrl)
+    }
     //router
     
     func goToProductDetails(closeScreen: Binding<Bool>, thisProduct : Product) -> some View {

@@ -10,4 +10,5 @@
 - Initialiser le Router
 - Afficher le deuxième écran avec tous les détails du produit
 - Créer un bouton qui permet le retour en arrière 
+- Afficher les images
 

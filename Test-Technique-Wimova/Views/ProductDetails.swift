@@ -20,6 +20,7 @@ struct ProductDetails: View {
     @ObservedObject var presenter : ProductPresenter
     @Binding var closeScreen : Bool
     var product : Product
+    
     var body: some View {
         ScrollView {
             HStack {
@@ -33,10 +34,12 @@ struct ProductDetails: View {
             }
             .padding([.leading, .bottom], 5.0)
             
+            if let thumbnail = presenter.thumbnail {
+                Image(uiImage: thumbnail)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
             
-            Image(product.thumbnail)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
             HStack {
                 Spacer()
                 Text(product.title)
@@ -62,7 +65,20 @@ struct ProductDetails: View {
                 
             }
             
-            //essayer de mettre les images supplémentaire
+            VStack {
+                ForEach(presenter.images, id: \.self) {
+                    image in
+                    if let image = image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                }
+            }
+        }
+        .onAppear {
+            presenter.fetchImage(urlImg: product.thumbnail)
+            presenter.fetchManyImage(arrayUrl: product.images)
         }
     }
 }
